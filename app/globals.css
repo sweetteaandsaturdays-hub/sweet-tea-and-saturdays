@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cream: #F7F3EC;
+  --eucalyptus: #BFC9BB;
+  --evergreen: #4F6B4F;
+  --charcoal: #2A2A2A;
+  --harvest: #C99B55;
+  --cinnamon: #B7562C;
+}
+
+html, body {
+  background: var(--cream);
+  color: var(--charcoal);
+  font-family: theme('fontFamily.sans');
+}
+
+a { text-decoration: none; }
+img { display: block; }
