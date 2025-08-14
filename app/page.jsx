@@ -1,4 +1,5 @@
-// Force static generation and avoid any dynamic work at build time
+export const dynamic = 'force-dynamic';
+
 export const dynamic = 'force-static';
 
 export default function LandingPage() {
