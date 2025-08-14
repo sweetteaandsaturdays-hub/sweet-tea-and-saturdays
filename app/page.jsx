@@ -1,7 +1,5 @@
 export const dynamic = 'force-dynamic';
 
-export const dynamic = 'force-static';
-
 export default function LandingPage() {
   // Feature flags: 'coming-soon' | true | false
   const features = { bowKits: 'coming-soon', teamInspired: 'coming-soon' };
