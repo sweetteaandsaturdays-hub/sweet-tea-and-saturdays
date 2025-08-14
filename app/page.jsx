@@ -53,9 +53,9 @@ export default function LandingPage() {
                 <h3 className="font-serif text-2xl md:text-3xl mb-3">{title}</h3>
                 <p className="mb-6 text-black/70 md:max-w-[48ch]">{body}</p>
 
-                {/* FIXED: use safe quotes in alert */}
+                {/* waitlist form */}
                 <form
-                  onSubmit={(e) => { e.preventDefault(); alert("Thanks! We'll let you know when it's ready."); }}
+                  onSubmit={(e) => { e.preventDefault(); alert(`Thanks! We’ll let you know when it’s ready.`); }}
                   className="flex flex-col sm:flex-row gap-3"
                 >
                   <input
@@ -205,14 +205,14 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Email capture (FIXED alert) */}
+      {/* Email capture (alerts now use backticks) */}
       <section id="email" className="py-12">
         <div className="max-w-md mx-auto text-center px-4">
           <h3 className="font-serif text-2xl mb-3">Join our list</h3>
           <p className="text-black/70 mb-6">Be the first to see seasonal drops, restocks, and promos.</p>
 
           <form
-            onSubmit={(e) => { e.preventDefault(); alert('Thanks! We\\'ll add you to the list.'); }}
+            onSubmit={(e) => { e.preventDefault(); alert(`Thanks! We’ll add you to the list.`); }}
             className="flex gap-2"
           >
             <input
