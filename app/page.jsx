@@ -1,4 +1,5 @@
-import Image from 'next/image';
+// Force static generation and avoid any dynamic work at build time
+export const dynamic = 'force-static';
 
 export default function LandingPage() {
   // Feature flags: 'coming-soon' | true | false
@@ -42,6 +43,10 @@ export default function LandingPage() {
     { name: 'Everyday Greens', img: featured[2].img, href: '#' },
     { name: 'Centerpieces & Candle Rings', img: featured[3].img, href: '#' },
   ];
+
+  function Img({ src, alt, className }) {
+    return <img src={src} alt={alt} className={className} loading="eager" decoding="async" />;
+  }
 
   function ComingSoon({ title, body, interestTag, bg, border, button, buttonHover, textColor }) {
     return (
@@ -134,7 +139,7 @@ export default function LandingPage() {
             </div>
           </div>
           <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow relative">
-            <Image fill className="object-cover" src={featured[0].img} alt="Featured wreath" />
+            <Img src={featured[0].img} alt="Featured wreath" className="w-full h-full object-cover" />
           </div>
         </div>
       </section>
@@ -150,7 +155,7 @@ export default function LandingPage() {
             {collections.map((c) => (
               <a key={c.name} href={c.href} className="group rounded-2xl overflow-hidden shadow bg-white">
                 <div className="aspect-[4/3] overflow-hidden relative">
-                  <Image fill src={c.img} alt={c.name} className="object-cover group-hover:scale-105 transition" />
+                  <Img src={c.img} alt={c.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
                 </div>
                 <div className="p-4 flex items-center justify-between">
                   <span className="font-medium">{c.name}</span>
@@ -170,7 +175,7 @@ export default function LandingPage() {
             {featured.map((p) => (
               <div key={p.id} className="rounded-2xl overflow-hidden bg-white shadow">
                 <div className="relative aspect-[4/5]">
-                  <Image fill src={p.img} alt={p.title} className="object-cover" />
+                  <Img src={p.img} alt={p.title} className="w-full h-full object-cover" />
                   <span className="absolute left-3 top-3 text-xs bg-[var(--cream)]/90 px-2 py-1 rounded-full border border-black/10">{p.badge}</span>
                 </div>
                 <div className="p-4">
@@ -199,13 +204,13 @@ export default function LandingPage() {
           </div>
           <div className="md:col-span-2">
             <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow relative">
-              <Image fill src={featured[2].img} alt="About Sweet Tea & Saturdays" className="object-cover" />
+              <Img src={featured[2].img} alt="About Sweet Tea & Saturdays" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Email capture (alerts now use backticks) */}
+      {/* Email capture */}
       <section id="email" className="py-12">
         <div className="max-w-md mx-auto text-center px-4">
           <h3 className="font-serif text-2xl mb-3">Join our list</h3>
